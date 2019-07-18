@@ -1,5 +1,5 @@
 const fs = require('fs');
-const DATA_DIR = './data/';
+const DATA_DIR = '../data/';
 const ENCODING = 'utf8'
 const INVALID_STRING = '\r\n  '
 const THEME_TAG = 'tema'
@@ -47,9 +47,10 @@ function splitMultipleThemes(themes) {
         let words = t.split(', ').join('#').split('; ').join('#').split(' e ').join('#').split('#')
 
         for (var j = 0; j < words.length; j++) {
-            let w = words[j]
+            var w = words[j]
             if (w != '') {
-                singleThemes.push(words[j])
+                w = w.split(' ').join('')
+                singleThemes.push(w)
             }
         }
     }
